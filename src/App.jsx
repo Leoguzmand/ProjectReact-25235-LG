@@ -4,6 +4,7 @@ import "./App.css";
 import reactLogo from "./assets/react.svg";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Home from "./pages/Home";
 import viteLogo from "/vite.svg";
 
 function App() {

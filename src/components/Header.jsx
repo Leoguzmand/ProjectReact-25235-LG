@@ -1,8 +1,6 @@
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { FaCircleArrowRight, FaTruck } from "react-icons/fa";
+import { FaArrowCircleRight, FaTruck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -20,7 +18,7 @@ const Header = () => {
           className="d-flex align-items-center fw-bold text-primary"
         >
           {/*
-          <FaCircleArrowRight size={22} className="ms-2" />
+          <FaArrowCircleRight size={22} className="ms-2" />
           <FaTruck size={22} className="ms-2" />
           */}
           <span className="ms-2">E-Commerce</span>
