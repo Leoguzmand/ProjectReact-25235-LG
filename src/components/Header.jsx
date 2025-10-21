@@ -9,7 +9,7 @@ const Header = () => {
       bg="white"
       variant="light"
       expand="lg"
-      className="shadow-sm border-bottom fixed-top"
+      className="shadow-sm border-bottom"
     >
       <Container>
         <Navbar.Brand
@@ -17,12 +17,20 @@ const Header = () => {
           to="/"
           className="d-flex align-items-center fw-bold text-primary"
         >
-          {/*
-          <FaArrowCircleRight size={22} className="ms-2" />
           <FaTruck size={22} className="ms-2" />
-          */}
-          <span className="ms-2">E-Commerce</span>
+          <FaArrowCircleRight size={22} className="ms-2" />
+
+          <span className="ms-2">TiendaLeo E-Commerce</span>
         </Navbar.Brand>
+
+        <Nav className="ms-auto align-items-center">
+          <Nav.Link as={Link} to="/" className="me-3">
+            Inicio
+          </Nav.Link>
+          <Nav.Link as={Link} to="/electronics" className="me-3">
+            Electrónica
+          </Nav.Link>
+        </Nav>
       </Container>
     </Navbar>
   );

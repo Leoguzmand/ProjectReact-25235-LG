@@ -4,6 +4,7 @@ import "./App.css";
 import reactLogo from "./assets/react.svg";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Electronics from "./pages/Electronics";
 import Home from "./pages/Home";
 import viteLogo from "/vite.svg";
 
@@ -16,8 +17,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/productos" element={<Productos />} />
-        <Route path="/administracion" element={<Login />} /> */}
+        <Route path="/electronics" element={<Electronics />} />
+        {/* <Route path="/administracion" element={<Login />} /> */}
       </Routes>
       {/*}
       <div>
