@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { FaArrowCircleRight, FaTruck } from "react-icons/fa";
+import { FaArrowCircleRight, FaShoppingCart, FaTruck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
       bg="white"
       variant="light"
       expand="lg"
-      className="shadow-sm border-bottom"
+      className="shadow-sm border-bottom bg-light"
     >
       <Container>
         <Navbar.Brand
@@ -24,12 +24,27 @@ const Header = () => {
         </Navbar.Brand>
 
         <Nav className="ms-auto align-items-center">
-          <Nav.Link as={Link} to="/" className="me-3">
+          <Nav.Link as={Link} to="/" className="me-3 text-info">
             Inicio
           </Nav.Link>
-          <Nav.Link as={Link} to="/electronics" className="me-3">
+          <Nav.Link as={Link} to="/electronics" className="me-3 text-info">
             Electrónica
           </Nav.Link>
+
+          <div className="d-flex align-items-center">
+            <Button
+              variant="outline-secondary"
+              as={Link}
+              to="/administracion"
+              className="me-2"
+            >
+              Administración
+            </Button>
+
+            <Link to="/carrito" className="text-info">
+              <FaShoppingCart size={22} className="ms-2" />
+            </Link>
+          </div>
         </Nav>
       </Container>
     </Navbar>

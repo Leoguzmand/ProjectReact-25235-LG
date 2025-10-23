@@ -29,7 +29,7 @@ const ProductList = ({ category = null }) => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <h4 className="text-muted">Loading...</h4>;
   }
 
   return (
