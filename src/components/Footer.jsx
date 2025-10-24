@@ -5,7 +5,7 @@ import { FcShop } from "react-icons/fc";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white text-center py-4 mt-4">
+    <footer className="bg-dark text-white text-center py-4 mt-auto">
       <Container>
         <Row>
           <Col md={6}>

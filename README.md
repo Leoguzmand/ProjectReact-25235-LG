@@ -1,3 +1,14 @@
+# TalentoTechReact_Proyecto
+
+Repositorio de proyecto del Curso Talento Tech: Front End con React
+
+## Este proyecto se trata de una página web que simula una tienda online con conexión a la API de FakeStoreAPI.
+
+Para visualizar el sitio web entrar a:
+https://tiendaleo-react.netlify.app/
+
+Hecho por: Leonardo Guzmán Durán
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

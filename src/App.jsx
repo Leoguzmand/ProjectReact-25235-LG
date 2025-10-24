@@ -10,15 +10,17 @@ import Login from "./pages/Login";
 function App() {
   return (
     <Router>
-      <Header />
+      <div className="d-flex flex-column min-vh-100">
+        <Header />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/electronics" element={<Electronics />} />
-        <Route path="/administracion" element={<Login />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/electronics" element={<Electronics />} />
+          <Route path="/administracion" element={<Login />} />
+        </Routes>
 
-      <Footer />
+        <Footer />
+      </div>
     </Router>
   );
 }
