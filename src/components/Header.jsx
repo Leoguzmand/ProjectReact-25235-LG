@@ -21,7 +21,6 @@ const Header = () => {
           <FaArrowCircleRight size={22} className="ms-2" />
 
           <span className="ms-2">TiendaLeo E-Commerce</span>
-          <span> Nueva Etapa </span>
         </Navbar.Brand>
 
         <Nav className="ms-auto align-items-center">
