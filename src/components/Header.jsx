@@ -35,7 +35,7 @@ const Header = () => {
             <Button
               variant="outline-secondary"
               as={Link}
-              to="/administracion"
+              to="/login"
               className="me-2"
             >
               Administración
