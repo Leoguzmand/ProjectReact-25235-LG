@@ -13,16 +13,27 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
     try {
-      e.preventDefault();
-      await login(username, password);
-      Swal.fire("Sesión iniciada correctamente", "¡Bienvenido!");
-      navigate("/electronics"); // Cambiar ruta a admin o dashboard
-    } catch (error) {
+      const result = await Promise.resolve(login(username, password));
+
+      if (!result) {
+        setError("Usuario o contraseña incorrectos");
+        Swal.fire("Error", "Usuario o contraseña incorrectos", "error");
+        return;
+      }
+
+      Swal.fire("Sesión iniciada correctamente", "¡Bienvenido!", "success");
+      navigate("/admin"); // Cambiar ruta a admin o dashboard
+    } catch (err) {
+      console.error("Error al hacer Login: ", err);
+      setError("Error al iniciar sesión");
       Swal.fire(
         "Error al iniciar sesión",
-        "Usuario o contraseña incorrectos",
-        error
+        "Ocurrió un error al iniciar sesión",
+        "error"
       );
     }
   };
@@ -58,6 +69,8 @@ const Login = () => {
                     required
                   />
                 </Form.Group>
+
+                {error && <div className="alert alert-danger">{error}</div>}
 
                 <Button type="submit" className="w-100" variant="primary">
                   Ingresar

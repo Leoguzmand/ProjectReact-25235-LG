@@ -69,7 +69,6 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartItems,
-        setCartItems,
         addToCart,
         removeFromCart,
         clearCart,
@@ -82,4 +81,4 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-export default CartContext;
+export const useCart = () => useContext(CartContext);

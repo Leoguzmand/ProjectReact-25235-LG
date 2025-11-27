@@ -7,15 +7,19 @@ export const AuthProvider = ({ children }) => {
 
   // Inicializamos el token leyéndolo de localStorage
   const [token, setToken] = useState(() => {
-    return localStorage.getItem("token") || null;
+    try {
+      return localStorage.getItem("token") || null;
+    } catch {
+      return null;
+    }
   });
 
   // Iniciar sesión
   const login = (username, password) => {
     if (username === "admin" && password === "admin1234") {
-      const token = `fake-token-${username}`;
-      setToken(token);
-      localStorage.setItem("token", token);
+      const newToken = `fake-token-${username}`;
+      setToken(newToken);
+      localStorage.setItem("token", newToken);
       // Se guarda token en localStorage
       return true;
     }

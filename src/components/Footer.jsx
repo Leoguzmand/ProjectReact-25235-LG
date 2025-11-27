@@ -31,6 +31,7 @@ const Footer = () => {
               <a
                 href="https://github.com/Leoguzmand/ProjectReact-25235-LG"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-white me-3"
               >
                 <i className="fa fa-github fa-2x"></i>
