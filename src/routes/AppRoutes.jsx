@@ -21,6 +21,9 @@ const AppRoutes = () => {
             path="/admin"
             element={<RutaProtegida>{<Administracion />}</RutaProtegida>}
           />
+          {/* Cuando la ruta no coincide, renderiza Home */}
+          {/* 404 - Página no encontrada */}
+          <Route path="*" element={<Home />} />
         </Routes>
 
         <Footer />
