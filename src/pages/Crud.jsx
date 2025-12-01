@@ -71,6 +71,23 @@ const CrudProductos = () => {
       .catch((error) => console.error("Error: ", error));
   };
 
+  // Eliminar producto
+  const eliminarProducto = (id) => {
+    if (!window.confirm("¿Seguro que quieres eliminar este producto?")) return;
+
+    fetch(`${API_URL}/${id}`, { method: "DELETE" })
+      .then((res) => {
+        if (!res.ok) throw new Error("Error al eliminar el producto");
+        getProductos();
+      })
+      .catch((error) => console.error("Error: ", error));
+  };
+
+  // Productos al inicializar
+  useEffect(() => {
+    getProductos();
+  }, []);
+
   return (
     <div className="container mt-4">
       <h2 className="p-4 text-danger bg-info">Tabla de Productos</h2>
