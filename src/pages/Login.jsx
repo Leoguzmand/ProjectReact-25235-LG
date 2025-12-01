@@ -75,6 +75,11 @@ const Login = () => {
                 <Button type="submit" className="w-100" variant="primary">
                   Ingresar
                 </Button>
+
+                <p className="mt-3 px-2 px-md-5 fw-light">
+                  Pista: Para acceder ingresa usuario <strong>admin</strong> y
+                  contraseña <strong>admin1234</strong>.
+                </p>
               </Form>
             </Card.Body>
           </Card>
