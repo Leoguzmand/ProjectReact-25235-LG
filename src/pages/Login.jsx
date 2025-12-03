@@ -33,7 +33,7 @@ const Login = () => {
       Swal.fire(
         "Error al iniciar sesión",
         "Ocurrió un error al iniciar sesión",
-        "error"
+        "error",
       );
     }
   };
@@ -76,7 +76,7 @@ const Login = () => {
                   Ingresar
                 </Button>
 
-                <p className="mt-3 px-2 px-md-5 fw-light">
+                <p className="mt-3 px-2 px-md-3 fw-light text-left text-muted">
                   Pista: Para acceder ingresa usuario <strong>admin</strong> y
                   contraseña <strong>admin1234</strong>.
                 </p>
