@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.table thead.encabezado th {
+  background-color: #008080;
+  color: #ffffff;
+}
