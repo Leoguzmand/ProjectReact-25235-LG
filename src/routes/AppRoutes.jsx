@@ -2,6 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Administracion from "../pages/Administracion";
+import Carrito from "../pages/Carrito";
 import CrudProductos from "../pages/Crud";
 import Electronics from "../pages/Electronics";
 import Home from "../pages/Home";
@@ -23,6 +24,7 @@ const AppRoutes = () => {
             element={<RutaProtegida>{<Administracion />}</RutaProtegida>}
           />
           <Route path="/crud" element={<CrudProductos />} />
+          <Route path="/cart" element={<Carrito />} />
           {/* Cuando la ruta no coincide, renderiza Home */}
           {/* 404 - Página no encontrada */}
           <Route path="*" element={<Home />} />

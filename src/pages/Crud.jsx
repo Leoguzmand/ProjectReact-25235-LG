@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Form, Modal, ModalHeader, Table } from "react-bootstrap";
+import { Button, Form, Modal, Table } from "react-bootstrap";
+import { FaPenToSquare, FaRegTrashCan } from "react-icons/fa6";
+import { FiPlusCircle } from "react-icons/fi";
 
 const API_URL = "https://692a74d17615a15ff24cb5b0.mockapi.io/api/Products";
 
@@ -53,6 +55,7 @@ const CrudProductos = () => {
       stock: Number(form.stock) || 0,
     };
 
+    // Falta validación del producto (precio mayor o igual a 0)
     const method = editId ? "PUT" : "POST";
     const url = editId ? `${API_URL}/${editId}` : API_URL;
 
@@ -75,7 +78,7 @@ const CrudProductos = () => {
   // Eliminar producto
   const eliminarProducto = (id) => {
     if (!window.confirm("¿Seguro que quieres eliminar este producto?")) return;
-
+    // **Hacer Modal para eliminar producto y alerta Toast**
     fetch(`${API_URL}/${id}`, { method: "DELETE" })
       .then((res) => {
         if (!res.ok) throw new Error("Error al eliminar el producto");
@@ -91,29 +94,37 @@ const CrudProductos = () => {
 
   return (
     <div className="container mt-4">
-      <div className="d-flex bg-success justify-content-between">
-        <h2 className="p-4 text-danger bg-info">Tabla de Productos</h2>
-        <Button className="m-3" onClick={() => handleShow()}>
+      <div className="d-flex bg-light justify-content-between">
+        <h2 className="p-4 text-primary">Tabla de Productos</h2>
+        <Button
+          className="m-4 d-flex align-items-center gap-2"
+          onClick={() => handleShow()}
+        >
+          <FiPlusCircle size={20} />
           Agregar Producto
         </Button>
       </div>
 
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive className="align-middle">
         <thead className="encabezado fw-bold">
           <tr>
-            <th>Título</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Imagen</th>
-            <th>Acciones</th>
+            <th style={{ width: "15%" }}>Título</th>
+            <th style={{ width: "30%" }}>Descripción</th>
+            <th style={{ width: "10%" }}>Precio</th>
+            <th style={{ width: "10%" }}>Stock</th>
+            <th style={{ width: "15%" }}>Imagen</th>
+            <th style={{ width: "20%" }}>Acciones</th>
           </tr>
         </thead>
         <tbody>
           {productos.map((prod) => (
             <tr key={prod.id}>
-              <td>{prod.title}</td>
-              <td>{prod.description}</td>
+              <td className="text-truncate" style={{ maxWidth: "150px" }}>
+                {prod.title}
+              </td>
+              <td className="text-truncate" style={{ maxWidth: "250px" }}>
+                {prod.description}
+              </td>
               <td>$ {Number(prod.price).toFixed(2)}</td>
               <td>{prod.stock}</td>
               <td>
@@ -121,8 +132,8 @@ const CrudProductos = () => {
                   <img
                     src={prod.image}
                     alt={prod.title}
-                    width={50}
-                    height={50}
+                    width={60}
+                    height={60}
                     style={{ objectFit: "cover" }}
                   />
                 ) : (
@@ -130,20 +141,26 @@ const CrudProductos = () => {
                 )}
               </td>
               <td>
-                <Button
-                  size="sm"
-                  variant="warning"
-                  onClick={() => handleShow(prod)}
-                >
-                  Editar
-                </Button>{" "}
-                <Button
-                  size="sm"
-                  variant="danger"
-                  onClick={() => eliminarProducto(prod.id)}
-                >
-                  Eliminar
-                </Button>
+                <div className="d-flex justify-content-center flex-wrap gap-2">
+                  <Button
+                    size="sm"
+                    variant="warning"
+                    onClick={() => handleShow(prod)}
+                    className="d-flex align-items-center gap-1"
+                  >
+                    <FaPenToSquare />
+                    <span className="d-none d-md-inline">Editar</span>
+                  </Button>{" "}
+                  <Button
+                    size="sm"
+                    variant="danger"
+                    onClick={() => eliminarProducto(prod.id)}
+                    className="d-flex align-items-center gap-1"
+                  >
+                    <FaRegTrashCan />
+                    <span className="d-none d-md-inline">Eliminar</span>
+                  </Button>
+                </div>
               </td>
             </tr>
           ))}

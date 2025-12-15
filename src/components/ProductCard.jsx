@@ -1,7 +1,14 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { useCart } from "../context/CartContext";
 
-const ProductCard = ({ product, agregarAlCarrito }) => {
+const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
+
   return (
     // Armo la cards
     <Card className="h-100 d-flex flex-column">
@@ -19,7 +26,7 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
         <Card.Text>
           <strong>${product.price}</strong>
         </Card.Text>
-        <Button variant="primary" onClick={() => agregarAlCarrito(product)}>
+        <Button variant="primary" onClick={handleAddToCart}>
           Agregar al carrito
         </Button>
       </Card.Body>

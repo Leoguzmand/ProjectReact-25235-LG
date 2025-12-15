@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // Crear el contexto
 const CartContext = createContext();
@@ -17,9 +17,10 @@ export const CartProvider = ({ children }) => {
         return prevCart.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
-            : item
+            : item,
         );
       }
+      // Si el elemento no existe en el carrito, agrega un producto nuevo al final con cantidad 1
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };
@@ -38,22 +39,22 @@ export const CartProvider = ({ children }) => {
   const updateQuantity = (id, newQuantity) => {
     setCartItems((prevCart) =>
       prevCart.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
+        item.id === id ? { ...item, quantity: newQuantity } : item,
+      ),
     );
   };
 
   // Calcular total
   const total = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
-    0
+    0,
   );
 
   // Al cargar la app, leer carrito guardado
   useEffect(() => {
     try {
-      const storedCart = JSON.parse(localStorage.getItem("cart"));
-      setCartItems(storedCart || []);
+      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartItems(storedCart);
     } catch {
       setCartItems([]);
     }
